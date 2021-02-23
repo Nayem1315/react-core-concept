@@ -3,32 +3,42 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
-  const person = {
-    name: "nayem",
-    or: "and",
-    work: "learn with jhankar mahbub"
-  };
-  const person2 = {
-    name: "mahfuz",
-    job: "singer"
-  };
-  const style = {
-    color: "black",
-    backgroundColor: "white"
-  }
+  const products = [
+    { name: 'photoshop', price: '$90.99' },
+    { name: 'filmora', price: '$60.99' },
+    { name: 'after effect', price: '99.99' }
+  ]
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          React App Open Successfully
-        </p>
-        <h1 className="" style={style}>My Name Is {person.name + " " + person.or + " " + person.work}</h1>
-        <h3>My second jocker {person2.name + " " + person2.job}</h3>
-        <p>My first react paragraph</p>
+        <p>this is my react try base</p>
+
+        <Product product={products[0]}></Product>
+        <Product product={products[1]}></Product>
       </header>
     </div>
   );
+}
+function Product(props) {
+  const productStyle = {
+    border: '1px solid gray',
+    borderRadius: '10px',
+    backgroundColor: 'green',
+    margin: '10px',
+    height: '300px',
+    width: '200px',
+    float: 'left',
+  }
+  const { name, price } = props.product;
+  return (
+    <div style={productStyle}>
+      <h3>{name}</h3>
+      <h6>{price}</h6>
+      <button>BUY NOW</button>
+    </div>
+  )
+
 }
 
 export default App;
